@@ -18,6 +18,10 @@ FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
 RUN dotnet publish "./review.test.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
+ENV ASPNETCORE_ENVIRONMENT=Production
+ENV ASPNETCORE_URLS=http://+:80
+ENV ConnectionStrings__DefaultConnection=Host=localhost;Port=5432;Database=db;Username=postgres;Password=test
+
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .

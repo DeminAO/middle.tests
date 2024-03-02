@@ -1,10 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain.Entities;
 using review.test.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace App;
 
@@ -19,6 +14,11 @@ internal class GetPositionsListCommand(TestDatabase context)
 	Позиция - запись с установленым Value (не равен null)
 	Категория - запись без установленного Value (равен null)
 	Корневая категория - категория, у которой не установлен ParentId (равен null)
+
+	Гарантируется:
+	- нет циклических ссылок
+	- категория может быть вложена только в категорию
+	- позиция может быть вложена только в категорию
 
 	 пример: 
 		Name						Id		ParentId	Value
@@ -43,8 +43,8 @@ internal class GetPositionsListCommand(TestDatabase context)
 		{ name: "position 9" , category: "" }							// или .. category: null
 	 */
 	public class PositionName { public string Name { get; set; } public string Category { get; set; } }
-	public Task<List<PositionName>> GetList()
+	public List<PositionName> GetList()
 	{
-		throw new NotImplementedException(nameof(GetList));
+		
 	}
 }

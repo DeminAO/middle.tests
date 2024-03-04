@@ -49,6 +49,6 @@ internal class GetPositionsListCommand(TestDatabase context)
 	public class PositionName { public string Name { get; set; } public string Category { get; set; } }
 	public List<PositionName> GetList()
 	{
-		
+		throw new NotImplementedException();
 	}
 }

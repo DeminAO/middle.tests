@@ -8,7 +8,7 @@ internal class GetPositionsListCommand(TestDatabase context)
 
 	/*
 	
-	1. создать метод для получения списка позиций HierarchicalEntity
+	3. создать метод для получения списка позиций HierarchicalEntity
 	Каждая запись должна иметь наименование позиции и наименование корневой категории
 	
 	Позиция - запись с установленым Value (не равен null)

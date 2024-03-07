@@ -49,6 +49,33 @@ internal class GetPositionsListCommand(TestDatabase context)
 	public class PositionName { public string Name { get; set; } public string Category { get; set; } }
 	public List<PositionName> GetList()
 	{
-		throw new NotImplementedException();
+		var result = new List<PositionName>();
+		var list = context.HierarchicalEntities.Where(x => x.Value.HasValue);
+
+		foreach (var entity in list)
+		{
+			result.Add(new PositionName
+			{
+				Name = entity.Name,
+				Category = FindRoot(entity)?.Name
+			});
+		}
+
+		return result;
+
+		HierarchicalEntity FindRoot(HierarchicalEntity position)
+		{
+			if (position == null)
+				return null;
+			if (position.Value.HasValue && position.ParentId.HasValue)
+				return FindRoot(position.Parent);
+			if (position.Value.HasValue && !position.ParentId.HasValue)
+				return null;
+			if (!position.Value.HasValue && position.ParentId.HasValue)
+				return FindRoot(position.Parent);
+			if (!position.Value.HasValue && !position.ParentId.HasValue)
+				return position;
+			return null;
+		}
 	}
 }

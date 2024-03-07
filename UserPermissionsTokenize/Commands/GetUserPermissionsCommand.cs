@@ -1,6 +1,7 @@
-﻿using Domain;
+﻿
+using UserPermissionsTokenize.Domain;
 
-namespace App;
+namespace UserPermissionsTokenize.Commands;
 
 /// <summary>
 /// Модель информации о пользователе

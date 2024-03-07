@@ -1,7 +1,0 @@
-﻿
-
-
-
-
-
-Console.ReadKey(false);

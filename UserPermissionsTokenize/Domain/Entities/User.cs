@@ -1,4 +1,4 @@
-﻿namespace Domain.Entities;
+﻿namespace UserPermissionsTokenize.Domain.Entities;
 
 /// <summary>
 /// Пользователь
@@ -61,7 +61,7 @@ public class RolePermission
 /// </summary>
 public class Permission
 {
-	public Guid Id { get; set; }
+    public Guid Id { get; set; }
     /// <summary>
     /// Наименование разрешения. Уникальное, не может меняться во время выполнения
     /// </summary>

@@ -1,6 +1,6 @@
-﻿using review.test.Domain;
+﻿using HierarchicalStructureRefactor.Domain;
 
-namespace App;
+namespace HierarchicalStructureRefactor.Commands;
 
 internal class UpdateValuesRecursivelyCommand(TestDatabase context)
 {

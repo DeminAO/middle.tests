@@ -1,7 +1,7 @@
-﻿using Domain.Entities;
-using review.test.Domain;
+﻿using HierarchicalStructureRefactor.Domain;
+using HierarchicalStructureRefactor.Domain.Entities;
 
-namespace App;
+namespace HierarchicalStructureRefactor.Commands;
 
 internal class GetPositionsListCommand(TestDatabase context)
 {

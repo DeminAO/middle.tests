@@ -4,7 +4,7 @@ using UserPermissionsTokenize.Domain.Entities;
 
 namespace UserPermissionsTokenize.Domain;
 
-public class UsersTestDatabase(DbContextOptions<UsersTestDatabase> options) : DbContext(options)
+public class TestDatabase(DbContextOptions<TestDatabase> options) : DbContext(options)
 {
     public virtual DbSet<User> Users { get; set; }
     public virtual DbSet<UserRole> UserRoles { get; set; }

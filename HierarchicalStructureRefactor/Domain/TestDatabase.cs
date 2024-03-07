@@ -10,12 +10,12 @@ public class TestDatabase(DbContextOptions<TestDatabase> options) : DbContext(op
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfiguration(new EntitiesConfiguration());
+        modelBuilder.ApplyConfiguration(new HierarchicalEntityConfiguration());
         base.OnModelCreating(modelBuilder);
     }
 }
 
-public class EntitiesConfiguration : IEntityTypeConfiguration<HierarchicalEntity>
+public class HierarchicalEntityConfiguration : IEntityTypeConfiguration<HierarchicalEntity>
 {
     public void Configure(EntityTypeBuilder<HierarchicalEntity> builder)
     {

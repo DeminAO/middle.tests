@@ -21,7 +21,7 @@ public record TokenModel(Guid UserId, string[] Permissions)
 	}
 }
 
-internal class GetUserPermissionsCommand(UsersTestDatabase context)
+internal class GetUserPermissionsCommand(TestDatabase context)
 {
 	/// <summary>
 	/// Осуществляет сбор данных о пльзователе

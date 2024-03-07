@@ -27,6 +27,7 @@ public class UserRoleConfiguration : IEntityTypeConfiguration<UserRole>
 	{
 		builder.HasOne(x => x.User).WithMany(x => x.UserRoles);
 		builder.HasOne(x => x.Role).WithMany(x => x.UserRoles);
+		builder.HasKey(x => new { x.RoleId, x.UserId });
 	}
 }
 public class RolePermissionConfiguration : IEntityTypeConfiguration<RolePermission>
@@ -35,5 +36,6 @@ public class RolePermissionConfiguration : IEntityTypeConfiguration<RolePermissi
 	{
 		builder.HasOne(x => x.Role).WithMany(x => x.RolePermissions);
 		builder.HasOne(x => x.Permission).WithMany(x => x.RolePermissions);
+		builder.HasKey(x => new { x.RoleId, x.PermissionId });
 	}
 }

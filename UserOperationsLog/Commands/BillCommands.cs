@@ -5,6 +5,29 @@ namespace UserOperationsLog.Commands;
 
 internal class BillCommands(TestDatabase context, UserAccessor userAccessor)
 {
+	/*
+	
+	Разработать систему хранения истории действий пользователей. 
+	Требование: 
+		- история должна сохраняться в бд
+		- действие должно влиять на производительность основного обработчика минимальным образом
+
+		Должна включать:
+		- идентификатор пользователя
+		- наименование таблицы
+		- идентификатор создаваемой / изменяемой записи
+		- для изменяемой записи список измененных свойств
+		- для создаваемой и удаляемой записи список всех свойств
+		- время события в utc
+
+	действия пользователей:
+	- создан счет
+	- в счет добавлена позиция
+	- позиция счета обновлена
+	- счет оплачен
+	 
+	 */
+
 	public record CreateBillPositionModel(int Count, decimal Price, Guid PriceListItemId);
 	public record CreateBillModel(CreateBillPositionModel[] BillPositions);
 	public Guid CreateBill(CreateBillModel model)
